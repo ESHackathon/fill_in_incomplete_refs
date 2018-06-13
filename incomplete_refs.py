@@ -3,7 +3,6 @@ from urllib.request import urlopen
 from pprint import pprint
 
 def convert_nonsense(my_str):
-
 	if isinstance(my_str, str):
 		my_str=html.unescape(my_str)
 		return my_str

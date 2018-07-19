@@ -3,6 +3,7 @@ from urllib.request import urlopen
 from pprint import pprint
 
 def convert_nonsense(my_str):
+
 	if isinstance(my_str, str):
 		my_str=html.unescape(my_str)
 		return my_str
@@ -37,8 +38,10 @@ def detect_refs_with_no_abstract_available():
 	my_refs=[]
 	#for path, subdirs, files in os.walk('../'):
 	for path, subdirs, files in os.walk('../../Google Scholar'):
-	    for name in files:
-	        my_refs.append(os.path.join(path, name))
+		for name in files:
+			my_refs.append(os.path.join(path, name))
+
+	pprint(my_refs)
 
 	#print(list(set([x[-3:] for x in my_refs])))
 
@@ -101,13 +104,13 @@ def detect_refs_with_no_abstract_available():
 ris_refs_dict=detect_refs_with_no_abstract_available()
 pprint(ris_refs_dict)
 
-#ore_files=[x for x in my_refs if x[-3:]=='ore']
-#enw_files=[x for x in my_refs if x[-3:]=='enw']
-#ciw_files=[x for x in my_refs if x[-3:]=='ciw']
+ore_files=[x for x in my_refs if x[-3:]=='ore']
+enw_files=[x for x in my_refs if x[-3:]=='enw']
+ciw_files=[x for x in my_refs if x[-3:]=='ciw']
 
-	#pprint(ris_refs_dict)
+pprint(ris_refs_dict)
 
-'''my_lines=re.sub(r'\n','',my_lines)
+my_lines=re.sub(r'\n','',my_lines)
 m=re.findall(r'^([A-Z])+  - ',my_lines)
 #m=re.search(r'TI  - (.*?) [A-Z]+  - ',my_lines)
 if m:
@@ -127,4 +130,3 @@ else:
 	print(lines)
 	print()
 	print('\n------------------------------------------\n')
-'''
